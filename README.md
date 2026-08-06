@@ -14,13 +14,19 @@ Open one of the language routes:
 - `http://127.0.0.1:3000/en`
 - `http://127.0.0.1:3000/ja`
 
+Early bird registration pages are available at:
+
+- `/zh-TW/early-bird`
+- `/en/early-bird`
+- `/ja/early-bird`
+
 ## Verify
 
 ```bash
 npm run build
 ```
 
-The project is a dependency-free static site. `npm run build` pre-renders complete localized HTML into `dist/zh-TW`, `dist/en`, and `dist/ja`, so every language route has crawlable copy and its own metadata. The legacy `?lang=` links remain supported.
+The project is a dependency-free static site. `npm run build` pre-renders complete localized HTML for the home and early bird pages into `dist/zh-TW`, `dist/en`, and `dist/ja`, so every language route has crawlable copy and its own metadata. The legacy `?lang=` links remain supported.
 
 ## Preview the production build
 

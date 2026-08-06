@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="styles.css" />
     <title>麥尾 Mugio｜台灣獨立遊戲團隊</title>
   </head>
-  <body>
+  <body data-page="home">
     <a class="skip-link" href="#main" data-i18n="a11y.skip">跳到主要內容</a>
     <div class="page-noise" aria-hidden="true"></div>
     <div class="ambient ambient--one" aria-hidden="true"></div>
@@ -36,6 +36,7 @@
         <a href="#game" data-i18n="nav.game">走走小日</a>
         <a href="#genres" data-i18n="nav.genre">遊戲類型</a>
         <a href="#gallery" data-i18n="nav.gallery">畫面</a>
+        <a href="#early-bird" data-i18n="nav.early">早鳥預約</a>
         <a href="#press" data-i18n="nav.press">媒體資料</a>
         <a href="#team" data-i18n="nav.team">團隊</a>
       </nav>
@@ -56,6 +57,7 @@
         <a href="#game" data-i18n="nav.game">走走小日</a>
         <a href="#genres" data-i18n="nav.genre">遊戲類型</a>
         <a href="#gallery" data-i18n="nav.gallery">畫面</a>
+        <a href="#early-bird" data-i18n="nav.early">早鳥預約</a>
         <a href="#press" data-i18n="nav.press">媒體資料</a>
         <a href="#team" data-i18n="nav.team">團隊</a>
         <a href="#hibimon-notes" data-i18n="nav.hibimon">出沒筆記</a>
@@ -186,9 +188,41 @@
         </div>
       </section>
 
+      <section class="section early-bird-section" id="early-bird">
+        <div class="shell">
+          <div class="early-bird-card">
+            <div class="early-bird-copy reveal">
+              <p class="section-index">05 / <span data-i18n="early.index">EARLY BIRD</span></p>
+              <div class="early-bird-status"><span class="pulse-dot"></span><strong data-i18n="early.status">早鳥登記開放中</strong></div>
+              <h2 data-i18n="early.heading">先把《走走小日》的下一站，記進你的日常。</h2>
+              <p data-i18n="early.body">留下聯絡方式，優先收到試玩、展會與上市進度。只有重要消息，不會塞滿你的信箱。</p>
+              <ul class="early-bird-tags" aria-label="早鳥通知內容" data-i18n-aria-label="early.tagsLabel">
+                <li data-i18n="early.tagDemo">試玩消息</li>
+                <li data-i18n="early.tagEvent">展會情報</li>
+                <li data-i18n="early.tagRelease">上市進度</li>
+              </ul>
+              <a class="button button--primary early-bird-cta" href="/zh-TW/early-bird" data-page-link="early-bird"><span data-i18n="early.cta">前往早鳥預約</span><span aria-hidden="true">↗</span></a>
+              <small data-i18n="early.note">免費登記 · 可隨時取消 · 不承諾尚未公布的獎勵</small>
+            </div>
+            <div class="early-bird-visual reveal" data-reveal-delay="90" aria-hidden="true">
+              <div class="early-bird-ticket">
+                <div class="early-bird-ticket__head"><span>EARLY BIRD PASS</span><b>NO. 0001</b></div>
+                <img src="assets/brand/moments-logo-zh.svg" alt="" />
+                <div class="early-bird-route"><i></i><i></i><i></i><i></i></div>
+                <div class="early-bird-ticket__meta"><span>TAIPEI</span><strong>→</strong><span>YOUR NEXT STOP</span></div>
+                <div class="early-bird-ticket__foot"><span>ZH · EN · JA</span><b>ADMIT ONE</b></div>
+              </div>
+              <figure class="early-bird-photo"><img src="assets/images/screen-04.webp" alt="" /></figure>
+              <img class="early-bird-dog" src="assets/images/naotaro.webp" alt="" />
+              <div class="early-bird-stamp"><span>REGISTER</span><strong>NOW</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section shell press-section" id="press">
         <div class="section-heading reveal">
-          <div><p class="section-index">05 / <span data-i18n="press.index">PRESS KIT</span></p><h2 data-i18n="press.heading">給媒體、展會與合作夥伴的快速入口。</h2></div>
+          <div><p class="section-index">06 / <span data-i18n="press.index">PRESS KIT</span></p><h2 data-i18n="press.heading">給媒體、展會與合作夥伴的快速入口。</h2></div>
           <p data-i18n="press.intro">下載團隊 Logo、遊戲 Logo、主視覺、高解析遊戲畫面與三語文字資料。若需要其他格式，歡迎直接來信。</p>
         </div>
         <div class="press-layout">
@@ -213,15 +247,15 @@
       <section class="section team-section" id="team">
         <div class="shell">
           <div class="section-heading reveal">
-            <div><p class="section-index">06 / <span data-i18n="team.index">TEAM</span></p><h2 data-i18n="team.heading">插畫、設計、工程與文字，一起把日常做成遊戲。</h2></div>
+            <div><p class="section-index">07 / <span data-i18n="team.index">TEAM</span></p><h2 data-i18n="team.heading">插畫、設計、工程與文字，一起把日常做成遊戲。</h2></div>
             <p data-i18n="team.intro">麥尾由具有插畫、產品設計、程式開發與文字創作背景的成員組成，並與音樂夥伴共同完成作品。</p>
           </div>
           <div class="team-grid">
-            <article class="team-card reveal"><img src="assets/team/shiro.png" alt="小白" /><div><span>ART · ANIMATION</span><h3 data-i18n="team.shiroName">小白</h3><p data-i18n="team.shiroRole">美術、動畫設計</p></div></article>
-            <article class="team-card reveal" data-reveal-delay="35"><img src="assets/team/charlie.png" alt="查理" /><div><span>TEAM</span><h3 data-i18n="team.charlieName">查理</h3><p data-i18n="team.charlieRole">團隊成員</p></div></article>
-            <article class="team-card reveal" data-reveal-delay="70"><img src="assets/team/hugh.png" alt="Hugh" /><div><span>PRODUCER · GAME DESIGN</span><h3>Hugh</h3><p data-i18n="team.hughRole">製作人、遊戲設計</p></div></article>
-            <article class="team-card reveal" data-reveal-delay="105"><div class="avatar avatar--coral">SK</div><div><span>TEAM</span><h3 data-i18n="team.shikaName">西卡</h3><p data-i18n="team.shikaRole">團隊成員</p></div></article>
-            <article class="team-card reveal" data-reveal-delay="140"><div class="avatar avatar--sky">粥</div><div><span>MUSIC</span><h3 data-i18n="team.baizhouName">白粥</h3><p data-i18n="team.baizhouRole">音樂統籌</p></div></article>
+            <article class="team-card reveal"><span class="team-card__number">01</span><div><span>ART · ANIMATION</span><h3 data-i18n="team.shiroName">小白</h3></div><p data-i18n="team.shiroRole">美術、動畫設計</p></article>
+            <article class="team-card reveal" data-reveal-delay="35"><span class="team-card__number">02</span><div><span>TEAM</span><h3 data-i18n="team.charlieName">查理</h3></div><p data-i18n="team.charlieRole">團隊成員</p></article>
+            <article class="team-card reveal" data-reveal-delay="70"><span class="team-card__number">03</span><div><span>PRODUCER · GAME DESIGN</span><h3>Hugh</h3></div><p data-i18n="team.hughRole">製作人、遊戲設計</p></article>
+            <article class="team-card reveal" data-reveal-delay="105"><span class="team-card__number">04</span><div><span>TEAM</span><h3 data-i18n="team.shikaName">西卡</h3></div><p data-i18n="team.shikaRole">團隊成員</p></article>
+            <article class="team-card reveal" data-reveal-delay="140"><span class="team-card__number">05</span><div><span>MUSIC</span><h3 data-i18n="team.baizhouName">白粥</h3></div><p data-i18n="team.baizhouRole">音樂統籌</p></article>
           </div>
         </div>
       </section>
@@ -230,7 +264,7 @@
         <div class="shell">
           <div class="hibimon-notes-card">
             <div class="hibimon-notes-copy reveal">
-              <p class="section-index">07 / <span data-i18n="hibimon.index">HIBIMON NOTES</span></p>
+              <p class="section-index">08 / <span data-i18n="hibimon.index">HIBIMON NOTES</span></p>
               <div class="serial-status"><span class="pulse-dot"></span><strong data-i18n="hibimon.ongoing">持續連載中</strong><em data-i18n="hibimon.weekly">週更新</em></div>
               <h2 data-i18n="hibimon.heading">小日獸出沒筆記</h2>
               <p data-i18n="hibimon.body">在城市與日常裡發現小日獸的蹤跡。麥尾持續在 Instagram 記錄牠們的出沒片段，目前每週更新。</p>
@@ -253,7 +287,7 @@
 
       <section class="section shell contact-section" id="contact">
         <div class="contact-card reveal">
-          <div><p class="section-index">08 / <span data-i18n="contact.index">CONTACT</span></p><h2 data-i18n="contact.heading">東京見，或先從一封信開始。</h2><p data-i18n="contact.body">媒體採訪、展會、發行、商務合作與遊戲相關詢問，歡迎與麥尾聯絡。</p></div>
+          <div><p class="section-index">09 / <span data-i18n="contact.index">CONTACT</span></p><h2 data-i18n="contact.heading">東京見，或先從一封信開始。</h2><p data-i18n="contact.body">媒體採訪、展會、發行、商務合作與遊戲相關詢問，歡迎與麥尾聯絡。</p></div>
           <a class="contact-email" href="mailto:hello@mugio.studio"><span data-i18n="contact.emailLabel">EMAIL US</span><strong>hello@mugio.studio</strong><b aria-hidden="true">↗</b></a>
           <div class="social-links" aria-label="社群連結" data-i18n-aria-label="a11y.social"><a href="https://www.instagram.com/mugio_studio/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.threads.com/@mugio_studio" target="_blank" rel="noreferrer">Threads ↗</a><a href="https://www.facebook.com/profile.php?id=61582137934787" target="_blank" rel="noreferrer">Facebook ↗</a><a href="https://www.youtube.com/@Mugio-studio" target="_blank" rel="noreferrer">YouTube ↗</a><a href="https://www.instagram.com/hibimon.world/" target="_blank" rel="noreferrer">Hibimon ↗</a></div>
         </div>

@@ -24,10 +24,15 @@ const mimeTypes = {
 function resolveRequestPath(url) {
   const pathname = decodeURIComponent(new URL(url, "http://localhost").pathname);
   const routeName = pathname.replace(/^\/+|\/+$/g, "");
+  const routeParts = routeName.split("/").filter(Boolean);
   const relativePath = pathname === "/"
     ? "index.html"
-    : languageRoutes.has(routeName)
+    : routeName === "early-bird"
+      ? "early-bird.html"
+      : languageRoutes.has(routeName)
       ? path.join(routeName, "index.html")
+      : routeParts.length === 2 && languageRoutes.has(routeParts[0]) && routeParts[1] === "early-bird"
+        ? path.join(...routeParts, "index.html")
       : pathname.replace(/^\/+/, "");
   const filePath = path.resolve(root, relativePath);
   return filePath === root || filePath.startsWith(`${root}${path.sep}`) ? filePath : null;
@@ -46,8 +51,11 @@ createServer(async (request, response) => {
       fileStat = await stat(filePath);
     } catch (error) {
       const routeName = decodeURIComponent(new URL(request.url || "/", "http://localhost").pathname).replace(/^\/+|\/+$/g, "");
-      if (error?.code === "ENOENT" && languageRoutes.has(routeName)) {
-        filePath = path.join(root, "index.html");
+      const routeParts = routeName.split("/").filter(Boolean);
+      const isLanguageHome = languageRoutes.has(routeName);
+      const isEarlyBird = routeParts.length === 2 && languageRoutes.has(routeParts[0]) && routeParts[1] === "early-bird";
+      if (error?.code === "ENOENT" && (isLanguageHome || isEarlyBird)) {
+        filePath = path.join(root, isEarlyBird ? "early-bird.html" : "index.html");
         fileStat = await stat(filePath);
       } else {
         throw error;
