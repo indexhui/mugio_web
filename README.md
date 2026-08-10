@@ -20,13 +20,19 @@ Early bird registration pages are available at:
 - `/en/early-bird`
 - `/ja/early-bird`
 
+The Tokyo Game Show 2026 landing page is available at `/tgs2026`. It defaults to Japanese unless the visitor already has a saved language preference. Localized routes are:
+
+- `/zh-TW/tgs2026`
+- `/en/tgs2026`
+- `/ja/tgs2026`
+
 ## Verify
 
 ```bash
 npm run build
 ```
 
-The project is a dependency-free static site. `npm run build` pre-renders complete localized HTML for the home and early bird pages into `dist/zh-TW`, `dist/en`, and `dist/ja`, so every language route has crawlable copy and its own metadata. The legacy `?lang=` links remain supported.
+The project is a dependency-free static site. `npm run build` pre-renders complete localized HTML for the home, early bird, and TGS 2026 pages into `dist/zh-TW`, `dist/en`, and `dist/ja`, so every language route has crawlable copy and its own metadata. The legacy `?lang=` links remain supported.
 
 ## Preview the production build
 

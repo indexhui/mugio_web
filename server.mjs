@@ -1,10 +1,15 @@
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
+import { normalizeHtmlAssetPaths } from "./html-assets.mjs";
 
 const root = path.resolve(process.cwd(), process.env.SITE_ROOT || ".");
 const port = Number(process.env.PORT || 3000);
 const languageRoutes = new Set(["zh-TW", "en", "ja"]);
+const pageRouteFiles = new Map([
+  ["early-bird", "early-bird.html"],
+  ["tgs2026", "tgs2026.html"]
+]);
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
@@ -23,19 +28,20 @@ const mimeTypes = {
 
 function resolveRequestPath(url) {
   const pathname = decodeURIComponent(new URL(url, "http://localhost").pathname);
-  const routeName = pathname.replace(/^\/+|\/+$/g, "");
-  const routeParts = routeName.split("/").filter(Boolean);
   const relativePath = pathname === "/"
     ? "index.html"
-    : routeName === "early-bird"
-      ? "early-bird.html"
-      : languageRoutes.has(routeName)
-      ? path.join(routeName, "index.html")
-      : routeParts.length === 2 && languageRoutes.has(routeParts[0]) && routeParts[1] === "early-bird"
-        ? path.join(...routeParts, "index.html")
-      : pathname.replace(/^\/+/, "");
+    : pathname.replace(/^\/+/, "");
   const filePath = path.resolve(root, relativePath);
   return filePath === root || filePath.startsWith(`${root}${path.sep}`) ? filePath : null;
+}
+
+function getSourcePageFile(url) {
+  const routeName = decodeURIComponent(new URL(url, "http://localhost").pathname).replace(/^\/+|\/+$/g, "");
+  const routeParts = routeName.split("/").filter(Boolean);
+  if (languageRoutes.has(routeName)) return "index.html";
+  if (pageRouteFiles.has(routeName)) return pageRouteFiles.get(routeName);
+  if (routeParts.length === 2 && languageRoutes.has(routeParts[0])) return pageRouteFiles.get(routeParts[1]);
+  return null;
 }
 
 createServer(async (request, response) => {
@@ -50,20 +56,19 @@ createServer(async (request, response) => {
     try {
       fileStat = await stat(filePath);
     } catch (error) {
-      const routeName = decodeURIComponent(new URL(request.url || "/", "http://localhost").pathname).replace(/^\/+|\/+$/g, "");
-      const routeParts = routeName.split("/").filter(Boolean);
-      const isLanguageHome = languageRoutes.has(routeName);
-      const isEarlyBird = routeParts.length === 2 && languageRoutes.has(routeParts[0]) && routeParts[1] === "early-bird";
-      if (error?.code === "ENOENT" && (isLanguageHome || isEarlyBird)) {
-        filePath = path.join(root, isEarlyBird ? "early-bird.html" : "index.html");
+      const sourcePageFile = getSourcePageFile(request.url || "/");
+      if (error?.code === "ENOENT" && sourcePageFile) {
+        filePath = path.join(root, sourcePageFile);
         fileStat = await stat(filePath);
       } else {
         throw error;
       }
     }
     if (fileStat.isDirectory()) filePath = path.join(filePath, "index.html");
-    const body = await readFile(filePath);
-    const contentType = mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream";
+    const extension = path.extname(filePath).toLowerCase();
+    let body = await readFile(filePath);
+    if (extension === ".html") body = Buffer.from(normalizeHtmlAssetPaths(body.toString("utf8")));
+    const contentType = mimeTypes[extension] || "application/octet-stream";
     response.writeHead(200, {
       "Content-Type": contentType,
       "Cache-Control": "no-cache",

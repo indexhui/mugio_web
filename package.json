@@ -7,7 +7,7 @@
     "dev": "node server.mjs",
     "preview": "SITE_ROOT=dist node server.mjs",
     "start": "node server.mjs",
-    "check": "node --check script.js && node --check server.mjs && node --check build.mjs",
+    "check": "node --check script.js && node --check html-assets.mjs && node --check server.mjs && node --check build.mjs",
     "build": "npm run check && node build.mjs"
   }
 }

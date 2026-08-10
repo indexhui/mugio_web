@@ -2,6 +2,7 @@ import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { normalizeHtmlAssetPaths } from "./html-assets.mjs";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 const outputRoot = path.join(projectRoot, "dist");
@@ -10,18 +11,35 @@ const sourcePages = {
   home: {
     html: await readFile(path.join(projectRoot, "index.html"), "utf8"),
     routeSuffix: "",
-    metaPrefix: "meta"
+    metaPrefix: "meta",
+    xDefaultLocale: "zh-TW"
   },
   earlyBird: {
     html: await readFile(path.join(projectRoot, "early-bird.html"), "utf8"),
     routeSuffix: "/early-bird",
-    metaPrefix: "early.meta"
+    metaPrefix: "early.meta",
+    xDefaultLocale: "zh-TW"
+  },
+  tgs2026: {
+    html: await readFile(path.join(projectRoot, "tgs2026.html"), "utf8"),
+    routeSuffix: "/tgs2026",
+    metaPrefix: "tgs.meta",
+    xDefaultLocale: "ja"
   }
 };
 
 const translationMatch = sourceScript.match(/const translations = (\{[\s\S]*?\n\});\n\nconst languageConfig/);
 if (!translationMatch) throw new Error("Could not read translations from script.js");
 const translations = vm.runInNewContext(`(${translationMatch[1]})`);
+
+const referenceTranslationKeys = Object.keys(translations["zh-TW"]);
+for (const [locale, dictionary] of Object.entries(translations)) {
+  const missingKeys = referenceTranslationKeys.filter((key) => !Object.hasOwn(dictionary, key));
+  const extraKeys = Object.keys(dictionary).filter((key) => !Object.hasOwn(translations["zh-TW"], key));
+  if (missingKeys.length || extraKeys.length) {
+    throw new Error(`Translation key mismatch for ${locale}. Missing: ${missingKeys.join(", ") || "none"}. Extra: ${extraKeys.join(", ") || "none"}.`);
+  }
+}
 
 const locales = {
   "zh-TW": { htmlLang: "zh-Hant", route: "/zh-TW", ogLocale: "zh_TW" },
@@ -109,18 +127,14 @@ function renderLocale(locale, page) {
     .replace(/rel="alternate" hreflang="zh-Hant" href="[^"]*"/, `rel="alternate" hreflang="zh-Hant" href="${siteOrigin}/zh-TW${pageConfig.routeSuffix}"`)
     .replace(/rel="alternate" hreflang="en" href="[^"]*"/, `rel="alternate" hreflang="en" href="${siteOrigin}/en${pageConfig.routeSuffix}"`)
     .replace(/rel="alternate" hreflang="ja" href="[^"]*"/, `rel="alternate" hreflang="ja" href="${siteOrigin}/ja${pageConfig.routeSuffix}"`)
-    .replace(/rel="alternate" hreflang="x-default" href="[^"]*"/, `rel="alternate" hreflang="x-default" href="${siteOrigin}/zh-TW${pageConfig.routeSuffix}"`)
+    .replace(/rel="alternate" hreflang="x-default" href="[^"]*"/, `rel="alternate" hreflang="x-default" href="${siteOrigin}${locales[pageConfig.xDefaultLocale].route}${pageConfig.routeSuffix}"`)
     .replace(/href="\/zh-TW(?:\/early-bird)?" lang="zh-Hant" hreflang="zh-Hant" data-lang="zh-TW"(?: aria-current="page")?/, `href="/zh-TW${pageConfig.routeSuffix}" lang="zh-Hant" hreflang="zh-Hant" data-lang="zh-TW"${locale === "zh-TW" ? ' aria-current="page"' : ""}`)
     .replace(/href="\/en(?:\/early-bird)?" lang="en" hreflang="en" data-lang="en"(?: aria-current="page")?/, `href="/en${pageConfig.routeSuffix}" lang="en" hreflang="en" data-lang="en"${locale === "en" ? ' aria-current="page"' : ""}`)
     .replace(/href="\/ja(?:\/early-bird)?" lang="ja" hreflang="ja" data-lang="ja"(?: aria-current="page")?/, `href="/ja${pageConfig.routeSuffix}" lang="ja" hreflang="ja" data-lang="ja"${locale === "ja" ? ' aria-current="page"' : ""}`)
     .replaceAll('href="/zh-TW" data-home-link', `href="${config.route}" data-home-link`)
-    .replaceAll('href="/zh-TW/early-bird" data-page-link="early-bird"', `href="${config.route}/early-bird" data-page-link="early-bird"`)
-    .replaceAll('="assets/', '="/assets/')
-    .replace('href="styles.css"', 'href="/styles.css"')
-    .replace('href="manifest.webmanifest"', 'href="/manifest.webmanifest"')
-    .replace('src="script.js"', 'src="/script.js"');
+    .replaceAll('href="/zh-TW/early-bird" data-page-link="early-bird"', `href="${config.route}/early-bird" data-page-link="early-bird"`);
 
-  return html;
+  return normalizeHtmlAssetPaths(html);
 }
 
 await rm(outputRoot, { recursive: true, force: true });
@@ -128,17 +142,25 @@ await mkdir(outputRoot, { recursive: true });
 
 for (const locale of Object.keys(locales)) {
   const localeDir = path.join(outputRoot, locale);
-  await mkdir(localeDir, { recursive: true });
-  await writeFile(path.join(localeDir, "index.html"), renderLocale(locale, "home"), "utf8");
-  const earlyBirdDir = path.join(localeDir, "early-bird");
-  await mkdir(earlyBirdDir, { recursive: true });
-  await writeFile(path.join(earlyBirdDir, "index.html"), renderLocale(locale, "earlyBird"), "utf8");
+  for (const [page, pageConfig] of Object.entries(sourcePages)) {
+    const pageDir = pageConfig.routeSuffix
+      ? path.join(localeDir, ...pageConfig.routeSuffix.split("/").filter(Boolean))
+      : localeDir;
+    await mkdir(pageDir, { recursive: true });
+    await writeFile(path.join(pageDir, "index.html"), renderLocale(locale, page), "utf8");
+  }
 }
 
-await writeFile(path.join(outputRoot, "index.html"), renderLocale("zh-TW", "home"), "utf8");
+for (const [page, pageConfig] of Object.entries(sourcePages)) {
+  const aliasDir = pageConfig.routeSuffix
+    ? path.join(outputRoot, ...pageConfig.routeSuffix.split("/").filter(Boolean))
+    : outputRoot;
+  await mkdir(aliasDir, { recursive: true });
+  await writeFile(path.join(aliasDir, "index.html"), renderLocale(pageConfig.xDefaultLocale, page), "utf8");
+}
 await cp(path.join(projectRoot, "assets"), path.join(outputRoot, "assets"), { recursive: true });
 for (const file of ["styles.css", "script.js", "manifest.webmanifest", "robots.txt"]) {
   await cp(path.join(projectRoot, file), path.join(outputRoot, file));
 }
 
-console.log("Built static language routes: /zh-TW, /en, /ja and each /early-bird page");
+console.log("Built static language routes: /zh-TW, /en, /ja with /early-bird and /tgs2026 pages");
