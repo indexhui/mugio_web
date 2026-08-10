@@ -24,8 +24,8 @@
       "destination": "/zh-TW",
       "permanent": false
     },
-    { "source": "/early-bird", "destination": "/zh-TW/early-bird", "permanent": false },
-    { "source": "/", "destination": "/zh-TW", "permanent": false }
+    { "source": "/early-bird", "destination": "/zh-TW/early-bird", "permanent": true },
+    { "source": "/", "destination": "/zh-TW", "permanent": true }
   ],
   "headers": [
     {

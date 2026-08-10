@@ -47,10 +47,8 @@ const locales = {
   ja: { htmlLang: "ja", route: "/ja", ogLocale: "ja_JP" }
 };
 
-const configuredHost = process.env.SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL || "";
-const siteOrigin = configuredHost
-  ? (configuredHost.startsWith("http") ? configuredHost : `https://${configuredHost}`).replace(/\/$/, "")
-  : "";
+const configuredHost = process.env.SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL || "https://www.mugio.studio";
+const siteOrigin = (configuredHost.startsWith("http") ? configuredHost : `https://${configuredHost}`).replace(/\/$/, "");
 
 function escapeHtml(value) {
   return String(value)
@@ -158,9 +156,22 @@ for (const [page, pageConfig] of Object.entries(sourcePages)) {
   await mkdir(aliasDir, { recursive: true });
   await writeFile(path.join(aliasDir, "index.html"), renderLocale(pageConfig.xDefaultLocale, page), "utf8");
 }
+
+const sitemapUrls = Object.values(locales).flatMap((locale) =>
+  Object.values(sourcePages).map((page) => `${siteOrigin}${locale.route}${page.routeSuffix}`)
+);
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...sitemapUrls.map((url) => `  <url><loc>${escapeHtml(url)}</loc></url>`),
+  '</urlset>',
+  ''
+].join("\n");
+await writeFile(path.join(outputRoot, "sitemap.xml"), sitemap, "utf8");
+
 await cp(path.join(projectRoot, "assets"), path.join(outputRoot, "assets"), { recursive: true });
 for (const file of ["styles.css", "script.js", "manifest.webmanifest", "robots.txt"]) {
   await cp(path.join(projectRoot, file), path.join(outputRoot, file));
 }
 
-console.log("Built static language routes: /zh-TW, /en, /ja with /early-bird and /tgs2026 pages");
+console.log("Built static language routes and sitemap for /zh-TW, /en, /ja with /early-bird and /tgs2026 pages");
