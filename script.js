@@ -263,12 +263,12 @@ document.querySelectorAll("[data-early-bird-form]").forEach((earlyBirdForm) => {
     event.preventDefault();
     if (!earlyBirdForm.reportValidity()) return;
     const formData = new FormData(earlyBirdForm);
+    const platform = formData.get("platform") || "unsure";
     const lines = [`${translate("early.mailEmail")}: ${formData.get("email") || ""}`];
     if (earlyBirdForm.querySelector('[name="name"]')) {
       lines.push(`${translate("early.mailName")}: ${formData.get("name") || "—"}`);
     }
     if (earlyBirdForm.querySelector('[name="platform"]')) {
-      const platform = formData.get("platform") || "unsure";
       lines.push(`${translate("early.mailPlatform")}: ${translate(`early.platform.${platform}`)}`);
     }
     lines.push(`${translate("early.mailLanguage")}: ${languageConfig[activeLanguage].htmlLang}`);
@@ -278,6 +278,16 @@ document.querySelectorAll("[data-early-bird-form]").forEach((earlyBirdForm) => {
     const mailto = `mailto:hello@mugio.studio?subject=${encodeURIComponent(translate("early.mailSubject"))}&body=${encodeURIComponent(lines.join("\n"))}`;
     const earlyBirdStatus = earlyBirdForm.querySelector("[data-early-bird-status]");
     if (earlyBirdStatus) earlyBirdStatus.textContent = translate("early.formStatus");
+    if (typeof window.gtag === "function") {
+      const urlParams = new URL(window.location.href).searchParams;
+      window.gtag("event", "generate_lead", {
+        form_id: "early_bird_registration",
+        form_name: "early_bird_registration",
+        lead_source: urlParams.get("utm_source") || "website",
+        preferred_platform: platform,
+        site_language: activeLanguage
+      });
+    }
     window.setTimeout(() => { window.location.href = mailto; }, 80);
   });
 });
