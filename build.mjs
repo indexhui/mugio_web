@@ -25,6 +25,12 @@ const sourcePages = {
     routeSuffix: "/tgs2026",
     metaPrefix: "tgs.meta",
     xDefaultLocale: "ja"
+  },
+  privacy: {
+    html: await readFile(path.join(projectRoot, "privacy.html"), "utf8"),
+    routeSuffix: "/privacy",
+    metaPrefix: "privacy.meta",
+    xDefaultLocale: "zh-TW"
   }
 };
 
@@ -126,11 +132,12 @@ function renderLocale(locale, page) {
     .replace(/rel="alternate" hreflang="en" href="[^"]*"/, `rel="alternate" hreflang="en" href="${siteOrigin}/en${pageConfig.routeSuffix}"`)
     .replace(/rel="alternate" hreflang="ja" href="[^"]*"/, `rel="alternate" hreflang="ja" href="${siteOrigin}/ja${pageConfig.routeSuffix}"`)
     .replace(/rel="alternate" hreflang="x-default" href="[^"]*"/, `rel="alternate" hreflang="x-default" href="${siteOrigin}${locales[pageConfig.xDefaultLocale].route}${pageConfig.routeSuffix}"`)
-    .replace(/href="\/zh-TW(?:\/early-bird)?" lang="zh-Hant" hreflang="zh-Hant" data-lang="zh-TW"(?: aria-current="page")?/, `href="/zh-TW${pageConfig.routeSuffix}" lang="zh-Hant" hreflang="zh-Hant" data-lang="zh-TW"${locale === "zh-TW" ? ' aria-current="page"' : ""}`)
-    .replace(/href="\/en(?:\/early-bird)?" lang="en" hreflang="en" data-lang="en"(?: aria-current="page")?/, `href="/en${pageConfig.routeSuffix}" lang="en" hreflang="en" data-lang="en"${locale === "en" ? ' aria-current="page"' : ""}`)
-    .replace(/href="\/ja(?:\/early-bird)?" lang="ja" hreflang="ja" data-lang="ja"(?: aria-current="page")?/, `href="/ja${pageConfig.routeSuffix}" lang="ja" hreflang="ja" data-lang="ja"${locale === "ja" ? ' aria-current="page"' : ""}`)
+    .replace(/href="\/zh-TW(?:\/(?:early-bird|tgs2026|privacy))?" lang="zh-Hant" hreflang="zh-Hant" data-lang="zh-TW"(?: aria-current="page")?/, `href="/zh-TW${pageConfig.routeSuffix}" lang="zh-Hant" hreflang="zh-Hant" data-lang="zh-TW"${locale === "zh-TW" ? ' aria-current="page"' : ""}`)
+    .replace(/href="\/en(?:\/(?:early-bird|tgs2026|privacy))?" lang="en" hreflang="en" data-lang="en"(?: aria-current="page")?/, `href="/en${pageConfig.routeSuffix}" lang="en" hreflang="en" data-lang="en"${locale === "en" ? ' aria-current="page"' : ""}`)
+    .replace(/href="\/ja(?:\/(?:early-bird|tgs2026|privacy))?" lang="ja" hreflang="ja" data-lang="ja"(?: aria-current="page")?/, `href="/ja${pageConfig.routeSuffix}" lang="ja" hreflang="ja" data-lang="ja"${locale === "ja" ? ' aria-current="page"' : ""}`)
     .replaceAll('href="/zh-TW" data-home-link', `href="${config.route}" data-home-link`)
-    .replaceAll('href="/zh-TW/early-bird" data-page-link="early-bird"', `href="${config.route}/early-bird" data-page-link="early-bird"`);
+    .replaceAll('href="/zh-TW/early-bird" data-page-link="early-bird"', `href="${config.route}/early-bird" data-page-link="early-bird"`)
+    .replaceAll('href="/zh-TW/privacy" data-page-link="privacy"', `href="${config.route}/privacy" data-page-link="privacy"`);
 
   return normalizeHtmlAssetPaths(html);
 }
@@ -174,4 +181,4 @@ for (const file of ["styles.css", "script.js", "manifest.webmanifest", "robots.t
   await cp(path.join(projectRoot, file), path.join(outputRoot, file));
 }
 
-console.log("Built static language routes and sitemap for /zh-TW, /en, /ja with /early-bird and /tgs2026 pages");
+console.log("Built static language routes and sitemap for /zh-TW, /en, /ja with /early-bird, /tgs2026, and /privacy pages");

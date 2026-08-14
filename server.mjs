@@ -8,7 +8,8 @@ const port = Number(process.env.PORT || 3000);
 const languageRoutes = new Set(["zh-TW", "en", "ja"]);
 const pageRouteFiles = new Map([
   ["early-bird", "early-bird.html"],
-  ["tgs2026", "tgs2026.html"]
+  ["tgs2026", "tgs2026.html"],
+  ["privacy", "privacy.html"]
 ]);
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",

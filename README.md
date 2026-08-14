@@ -26,6 +26,12 @@ The Tokyo Game Show 2026 landing page is available at `/tgs2026`. It defaults to
 - `/en/tgs2026`
 - `/ja/tgs2026`
 
+Localized privacy-policy pages for the website and the data-minimal release of *Moments* are available at:
+
+- `/zh-TW/privacy`
+- `/en/privacy`
+- `/ja/privacy`
+
 ## Verify
 
 ```bash
