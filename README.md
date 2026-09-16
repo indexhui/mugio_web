@@ -1,6 +1,6 @@
 # Mugio official website
 
-A responsive, dependency-free official website and press kit for Mugio and *Moments / 走走小日 / てくてく日和*.
+A responsive, dependency-free official website and press kit for Mugio and *Ditto MOMENTS / 走走小日 / てくてく日和*.
 
 ## Run locally
 
@@ -52,3 +52,23 @@ PORT=3001 npm run preview
 The repository includes `vercel.json`; Vercel serves the pre-rendered `dist/` output and redirects `/` to `/zh-TW`.
 
 Press assets are stored under `assets/press/`; the downloadable bundle is `assets/press/mugio-press-kit.zip`.
+
+## September 2026 content refresh
+
+The original scrapbook visual style is retained. Eight current exhibition prototype
+captures are used on the homepage; the media kit includes those original PNGs,
+four current artwork files and the current Chinese, English and Japanese logos.
+
+- Plan and asset priorities: [docs/WEBSITE-REFRESH-2026-09.md](docs/WEBSITE-REFRESH-2026-09.md)
+- Screenshot provenance: [docs/website-captures.json](docs/website-captures.json)
+- Original artwork provenance: [docs/website-assets.json](docs/website-assets.json)
+
+After changing press assets, regenerate the public ZIP before building:
+
+```bash
+python3 scripts/package-press-kit.py
+npm run build
+```
+
+The package script explicitly selects the current assets. Update its dated file
+selection and the download URL version together for the next media release.

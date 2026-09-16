@@ -165,6 +165,14 @@ button { font: inherit; }
 .collage-note strong { display: block; margin-top: 4px; font-size: 18px; }
 .collage-note small { color: var(--muted); font: 10px var(--mono); }
 
+/* Current exhibition captures, within the original scrapbook design. */
+.hero-game-logo { width: min(310px, 82%); height: auto; max-height: 120px; object-fit: contain; object-position: left; margin-bottom: 26px; }
+.collage-main--exhibition { inset: 22px auto 25px 7px; width: 58%; }
+.collage-main--exhibition img { object-fit: contain; background: #f4f0df; }
+.collage-screen--exhibition { width: 44%; right: -4px; top: 103px; }
+.collage-screen--exhibition img { aspect-ratio: 393 / 852; height: auto; object-fit: contain; }
+.hero-copy h1 { text-wrap: balance; }
+
 .studio-fact-strip { display: grid; grid-template-columns: .85fr .75fr 1.45fr 1fr; margin-top: 16px; border: 1px solid var(--line); border-radius: 24px; background: rgba(250,247,239,.72); overflow: hidden; }
 .studio-fact-strip article { min-height: 94px; padding: 18px 22px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--line); }
 .studio-fact-strip article:last-child { border-right: 0; }
@@ -555,6 +563,17 @@ button { font: inherit; }
 .tgs-play-loop h3 { margin: 0; font-size: 19px; }
 .tgs-play-loop p { margin: 8px 0 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
 
+.tgs-trailer-section { position: relative; overflow: hidden; margin-bottom: 18px; border-radius: 58px; color: white; background:
+  radial-gradient(circle at 12% 12%, rgba(67,181,197,.2), transparent 26%),
+  radial-gradient(circle at 91% 88%, rgba(237,118,93,.14), transparent 24%),
+  #172f3d; }
+.tgs-trailer-section::after { content: "PLAY"; position: absolute; right: -16px; bottom: -76px; color: rgba(255,255,255,.035); font: 700 210px/1 var(--mono); pointer-events: none; }
+.tgs-trailer-section .shell { position: relative; z-index: 1; }
+.tgs-trailer-frame { position: relative; overflow: hidden; aspect-ratio: 16 / 9; padding: 9px; border: 1px solid rgba(255,255,255,.24); border-radius: 34px; background: rgba(255,255,255,.08); box-shadow: 0 28px 72px rgba(4,16,24,.32); }
+.tgs-trailer-frame iframe { width: 100%; height: 100%; border: 0; border-radius: 25px; background: #08141b; }
+.tgs-trailer-link { width: fit-content; display: flex; align-items: center; gap: 18px; margin: 22px 0 0 auto; padding-bottom: 7px; border-bottom: 1px solid rgba(255,255,255,.48); color: white; font-size: 11px; font-weight: 700; text-decoration: none; }
+.tgs-trailer-link:hover { color: #91dce5; border-color: #91dce5; }
+
 .tgs-partner-section { position: relative; overflow: hidden; color: white; background:
   radial-gradient(circle at 90% 5%, rgba(67,181,197,.2), transparent 24%),
   radial-gradient(circle at 5% 92%, rgba(237,118,93,.15), transparent 26%),
@@ -584,6 +603,7 @@ button { font: inherit; }
 .tgs-press-kit ul { margin: 27px 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .tgs-press-kit li { display: flex; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 11px; }
 .tgs-press-kit li b { color: var(--muted); font: 8px var(--mono); white-space: nowrap; }
+.tgs-press-actions { display: grid; gap: 8px; }
 .tgs-media-contact { display: grid; grid-template-rows: minmax(260px,1fr) auto; }
 .tgs-media-contact figure { position: relative; min-height: 260px; margin: 0; overflow: hidden; }
 .tgs-media-contact figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 58%, rgba(11,34,50,.65)); }
@@ -613,6 +633,17 @@ button { font: inherit; }
 .tgs-inline-consent span { color: #596862; font-size: 9px; line-height: 1.65; }
 .tgs-inline-help, .tgs-inline-status { margin: 0; color: #6b7771; font-size: 8px; line-height: 1.6; }
 .tgs-inline-status { min-height: 13px; color: var(--blue-deep); font-weight: 700; }
+.tgs-store-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 27px; }
+.tgs-store-card { position: relative; min-height: 164px; display: flex; flex-direction: column; padding: 22px 42px 20px 21px; overflow: hidden; border: 1px solid rgba(40,43,43,.24); border-radius: 22px; color: var(--ink); background: rgba(255,253,248,.8); text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.tgs-store-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: 0 16px 30px rgba(48,69,62,.13); }
+.tgs-store-card > span { color: var(--blue); font: 700 8px var(--mono); letter-spacing: .11em; }
+.tgs-store-card strong { margin-top: 12px; font-size: 17px; line-height: 1.4; }
+.tgs-store-card small { margin-top: auto; padding-top: 17px; color: #65726c; font-size: 9px; line-height: 1.6; }
+.tgs-store-card > b { position: absolute; right: 18px; top: 18px; color: var(--coral); font-size: 16px; }
+.tgs-store-card--steam { color: white; border-color: #17375b; background: linear-gradient(145deg, #1c527d, #132f4d); }
+.tgs-store-card--steam > span { color: #9be1e8; }
+.tgs-store-card--steam small { color: rgba(255,255,255,.68); }
+.tgs-store-card--steam > b { color: #9be1e8; }
 .tgs-player-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
 .tgs-player-copy > small { display: block; margin-top: 13px; color: #68756f; font-size: 9px; }
 .tgs-player-art { position: relative; min-height: 410px; }
@@ -904,6 +935,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .tgs-play-loop { grid-template-columns: 1fr; margin-top: 43px; }
   .tgs-play-loop article:last-child { grid-column: auto; }
   .tgs-play-loop img { aspect-ratio: 1.5; }
+  .tgs-trailer-section { margin-bottom: 10px; border-radius: 36px; }
+  .tgs-trailer-frame { padding: 5px; border-radius: 20px; }
+  .tgs-trailer-frame iframe { border-radius: 15px; }
+  .tgs-trailer-link { margin-top: 17px; font-size: 10px; }
   .tgs-partner-section { border-radius: 36px 36px 0 0; }
   .tgs-partner-card { padding: 26px 22px; border-radius: 22px; }
   .tgs-partner-card h3 { font-size: 20px; }
@@ -924,6 +959,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   .tgs-inline-register { padding: 16px; border-radius: 20px; }
   .tgs-inline-register__row { grid-template-columns: 1fr; }
   .tgs-inline-register .button { width: 100%; }
+  .tgs-store-grid { grid-template-columns: 1fr; }
+  .tgs-store-card { min-height: 142px; }
   .tgs-player-actions { display: grid; }
   .tgs-player-art { min-height: 350px; }
   .tgs-player-art figure { width: 72%; }
@@ -959,4 +996,86 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* Portrait game captures preserve the complete interface at every breakpoint. */
+.gallery-grid--exhibition { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.shot--exhibition { min-width: 0; align-self: start; }
+.shot--exhibition img { aspect-ratio: 393 / 852; height: auto; object-fit: contain; }
+.shot--exhibition > span { min-height: 59px; align-items: flex-start; padding: 14px 5px 7px; gap: 9px; }
+.shot--exhibition b { padding-top: 4px; }
+.shot--exhibition:hover img { transform: none; }
+.play-flow-visual--exhibition { display: flex; justify-content: center; align-items: center; background: #e8e3d2; }
+.play-flow-visual--exhibition img { width: auto; height: 530px; min-height: 0; max-width: 100%; object-fit: contain; }
+.play-flow-visual--exhibition span { top: auto; bottom: 24px; }
+.press-download-note { font-size: 12px; color: var(--muted); line-height: 1.8; margin: 18px 0 0; }
+@media (max-width: 900px) {
+  .gallery-grid--exhibition { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+}
+@media (max-width: 560px) {
+  .hero-game-logo { width: 240px; max-width: 90%; }
+  .collage-main--exhibition { inset: 13px auto 25px 2px; width: 59%; }
+  .collage-screen--exhibition { top: 60px; right: -3px; width: 44%; }
+  .gallery-grid--exhibition { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .shot--exhibition { padding: 6px; border-radius: 17px; }
+  .shot--exhibition img { aspect-ratio: 393 / 852; border-radius: 12px; }
+  .shot--exhibition > span { gap: 5px; padding-inline: 2px; min-height: 57px; }
+  .shot--exhibition em { font-size: 12px; }
+  .play-flow-visual--exhibition img { height: 470px; min-height: 0; }
+}
+.tgs-play-loop--exhibition img { aspect-ratio: 393 / 852; max-height: 580px; object-fit: contain; background: #eee9dc; }
+
+/* TGS 2026 is a compact, store-first link hub. */
+.tgs-link-page { min-height: 100vh; background:
+  radial-gradient(circle at 7% 16%, rgba(237,118,93,.17), transparent 27%),
+  radial-gradient(circle at 93% 25%, rgba(67,181,197,.15), transparent 28%),
+  linear-gradient(160deg, #f4eee2 0%, #edf3eb 55%, #f7f2e9 100%); }
+.tgs-link-header { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 18px; }
+.tgs-link-brand { display: inline-flex; }
+.tgs-link-brand img { width: 112px; height: auto; }
+.tgs-link-main { padding: 34px 0 56px; }
+.tgs-link-hub { width: min(calc(100% - 64px), 880px); }
+.tgs-link-intro { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.tgs-link-intro .tgs-event-badge { margin: 0 auto 28px; }
+.tgs-link-game-logo { width: min(390px, 76vw); max-height: 150px; object-fit: contain; }
+.tgs-link-intro > p { max-width: 620px; margin: 24px 0 0; color: #5f645f; font-size: 14px; line-height: 1.8; }
+.tgs-primary-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 50px; }
+.tgs-primary-link { position: relative; min-height: 310px; display: flex; flex-direction: column; padding: 41px 45px 39px; overflow: hidden; border: 1px solid rgba(40,43,43,.22); border-radius: 43px; color: var(--ink); background: rgba(255,253,248,.86); box-shadow: 0 22px 55px rgba(59,68,62,.09); text-decoration: none; transition: transform .22s, box-shadow .22s, border-color .22s; }
+.tgs-primary-link:hover { transform: translateY(-5px); border-color: var(--blue); box-shadow: 0 28px 62px rgba(45,63,56,.16); }
+.tgs-primary-link__eyebrow { color: var(--blue); font: 700 11px var(--mono); letter-spacing: .12em; }
+.tgs-primary-link strong { max-width: 320px; margin-top: 27px; font-size: clamp(29px, 3.4vw, 42px); line-height: 1.22; letter-spacing: -.035em; }
+.tgs-primary-link small { max-width: 300px; margin-top: auto; padding-top: 30px; color: #66716c; font-size: 13px; line-height: 1.7; }
+.tgs-primary-link > b { position: absolute; right: 38px; top: 36px; color: var(--coral); font-size: 28px; line-height: 1; }
+.tgs-primary-link--steam { color: white; border-color: #143e65; background: linear-gradient(145deg, #235b85, #153a5d); }
+.tgs-primary-link--steam .tgs-primary-link__eyebrow, .tgs-primary-link--steam > b { color: #9de4eb; }
+.tgs-primary-link--steam small { color: rgba(255,255,255,.68); }
+.tgs-store-note { margin: 22px 3px 0; color: #69746f; font-size: 11px; }
+.tgs-secondary-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 46px; }
+.tgs-secondary-link { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 21px 25px; border: 1px solid rgba(40,43,43,.2); border-radius: 23px; background: rgba(255,253,248,.64); text-decoration: none; transition: background .2s, transform .2s, border-color .2s; }
+.tgs-secondary-link:hover { transform: translateY(-2px); border-color: var(--blue); background: rgba(255,253,248,.94); }
+.tgs-secondary-link > span { display: grid; gap: 7px; }
+.tgs-secondary-link small { color: var(--blue); font: 700 8px var(--mono); letter-spacing: .1em; }
+.tgs-secondary-link strong { font-size: 15px; line-height: 1.4; }
+.tgs-secondary-link > b { color: var(--coral); font-size: 20px; }
+.tgs-link-footer { min-height: 92px; display: flex; justify-content: space-between; align-items: center; gap: 22px; border-top: 1px solid rgba(40,43,43,.16); color: var(--muted); }
+.tgs-link-footer p { margin: 0; font: 9px var(--mono); }
+.tgs-link-footer a { font-size: 10px; font-weight: 700; text-decoration: none; }
+
+@media (max-width: 700px) {
+  .tgs-link-header { min-height: 76px; }
+  .tgs-link-brand img { width: 96px; }
+  .tgs-link-main { padding: 22px 0 40px; }
+  .tgs-link-hub { width: calc(100% - 28px); }
+  .tgs-link-intro .tgs-event-badge { margin-bottom: 22px; }
+  .tgs-link-intro > p { margin-top: 19px; font-size: 12px; }
+  .tgs-primary-links { grid-template-columns: 1fr; gap: 12px; margin-top: 38px; }
+  .tgs-primary-link { min-height: 230px; padding: 31px 29px 28px; border-radius: 31px; }
+  .tgs-primary-link__eyebrow { font-size: 9px; }
+  .tgs-primary-link strong { max-width: calc(100% - 38px); margin-top: 21px; font-size: clamp(28px, 9vw, 36px); }
+  .tgs-primary-link small { padding-top: 25px; font-size: 11px; }
+  .tgs-primary-link > b { right: 27px; top: 27px; font-size: 23px; }
+  .tgs-store-note { margin-top: 16px; font-size: 9px; }
+  .tgs-secondary-links { grid-template-columns: 1fr; gap: 9px; margin-top: 32px; }
+  .tgs-secondary-link { min-height: 80px; padding: 18px 21px; border-radius: 20px; }
+  .tgs-link-footer { min-height: 78px; }
 }

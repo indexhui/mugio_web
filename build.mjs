@@ -137,7 +137,14 @@ function renderLocale(locale, page) {
     .replace(/href="\/ja(?:\/(?:early-bird|tgs2026|privacy))?" lang="ja" hreflang="ja" data-lang="ja"(?: aria-current="page")?/, `href="/ja${pageConfig.routeSuffix}" lang="ja" hreflang="ja" data-lang="ja"${locale === "ja" ? ' aria-current="page"' : ""}`)
     .replaceAll('href="/zh-TW" data-home-link', `href="${config.route}" data-home-link`)
     .replaceAll('href="/zh-TW/early-bird" data-page-link="early-bird"', `href="${config.route}/early-bird" data-page-link="early-bird"`)
+    .replaceAll('href="/zh-TW/tgs2026" data-page-link="tgs2026"', `href="${config.route}/tgs2026" data-page-link="tgs2026"`)
     .replaceAll('href="/zh-TW/privacy" data-page-link="privacy"', `href="${config.route}/privacy" data-page-link="privacy"`);
+
+  html = html.replace(/<img\b[^>]*data-locale-logo[^>]*>/g, (tag) => {
+    const logoKey = locale === "ja" ? "ja" : locale === "en" ? "en" : "zh";
+    const source = tag.match(new RegExp(`data-${logoKey}-src="([^"]+)"`))?.[1];
+    return source ? tag.replace(/\bsrc="[^"]*"/, `src="${source}"`) : tag;
+  });
 
   return normalizeHtmlAssetPaths(html);
 }

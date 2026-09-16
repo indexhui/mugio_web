@@ -1,5 +1,5 @@
-MUGIO × MOMENTS PRESS INFORMATION
-Updated: 2026-08-03
+MUGIO × DITTO MOMENTS PRESS INFORMATION
+Updated: 2026-09-07
 Contact: hello@mugio.studio
 
 ============================================================
@@ -15,12 +15,12 @@ Contact: hello@mugio.studio
 麥尾是一支由插畫、UI／UX、工程與文字創作相互碰撞的台灣獨立遊戲團隊。我們喜歡將不同領域的經驗與對生活的觀察，轉化成遊戲中的故事、畫面與玩法，探索不同形式的互動。
 
 遊戲名稱：走走小日
-英文名稱：Moments
+英文名稱：Ditto MOMENTS
 日文名稱：てくてく日和
 類型：療癒系 Point-and-Click 敘事冒險
 預定平台：iOS、Android、Steam
 支援語言：繁體中文、英文、日文
-單次遊玩：約 3–5 分鐘
+開發狀態：開發中；發售日期尚未公布
 
 短版介紹：
 《走走小日》是一款以生活日常為舞台的療癒系點擊冒險遊戲。玩家跟著上班族小麥穿梭城市，尋找散落各處的小日獸，拼回交換日記，也找回兩名室友曾錯過的理解。
@@ -37,16 +37,16 @@ Contact: hello@mugio.studio
 Studio bio:
 Mugio is a Taiwanese indie game team where illustration, UI/UX, engineering, and writing meet. We turn experience from different fields—and what we notice in daily life—into stories, visuals, and playful forms of interaction.
 
-Game title: Moments
+Game title: Ditto MOMENTS
 Chinese title: 走走小日
 Japanese title: てくてく日和
 Genre: Cozy point-and-click narrative adventure
 Planned platforms: iOS, Android, Steam
 Languages: Traditional Chinese, English, Japanese
-Play session: About 3–5 minutes
+Status: In development; release date not announced
 
 Short description:
-Moments is a cozy point-and-click adventure set in everyday life. Follow office worker Mai through the city, find the scattered Hibimon, restore an exchange diary, and rediscover the understanding two roommates once missed.
+Ditto MOMENTS is a cozy point-and-click adventure set in everyday life. Follow office worker Mugi through the city, find the scattered Momentlings, restore an exchange diary, and rediscover the understanding two roommates once missed.
 
 ============================================================
 日本語
@@ -62,11 +62,11 @@ Moments is a cozy point-and-click adventure set in everyday life. Follow office 
 
 ゲームタイトル：てくてく日和
 中国語タイトル：走走小日
-英語タイトル：Moments
+英語タイトル：Ditto MOMENTS
 ジャンル：癒やし系ポイント＆クリック・アドベンチャー
 対応予定：iOS、Android、Steam
 対応言語：繁体字中国語、英語、日本語
-1回のプレイ：約3〜5分
+開発状況：開発中。発売日未定。
 
 短い紹介：
 『てくてく日和』は、日常を舞台にした癒やし系ポイント＆クリック・アドベンチャーです。会社員のムギと街をめぐり、散らばったヒビモンを探して交換日記を修復し、二人のルームメイトが見落としていた気持ちを取り戻していきます。
@@ -79,5 +79,59 @@ Instagram: https://www.instagram.com/mugio_studio/
 Threads: https://www.threads.com/@mugio_studio
 Facebook: https://www.facebook.com/profile.php?id=61582137934787
 YouTube: https://www.youtube.com/@Mugio-studio
-Hibimon: https://www.instagram.com/hibimon.world/
+Hibimon social: https://www.instagram.com/hibimon.world/
 Press coverage: https://gnn.gamer.com.tw/detail.php?sn=297116
+
+============================================================
+ASSET INDEX / 素材索引 / 素材一覧
+============================================================
+
+Current game logos:
+  moments-logo-zh-20260907.png (走走小日)
+  moments-logo-en.svg (Ditto MOMENTS)
+  moments-logo-ja-20260907.png (てくてく日和)
+Studio logos: mugio-logo-lockup.png, mugio-logo-mark.png
+Key art: moments-key-art.jpg
+
+Actual exhibition prototype captures (September 7, 2026):
+  screenshots/exhibition-20260907/title.png
+  screenshots/exhibition-20260907/route.png
+  screenshots/exhibition-20260907/naotaro-photo.png
+  screenshots/exhibition-20260907/diary.png
+  screenshots/exhibition-20260907/box-stacking.png
+  screenshots/exhibition-20260907/convenience-photo.png
+  screenshots/exhibition-20260907/dessert-shop.png
+  screenshots/exhibition-20260907/dessert-photo.png
+
+Current original artwork:
+  artwork/title-background.png
+  artwork/dessert-shop.jpg
+  artwork/box-stacking.jpg
+  artwork/mugi-surprised.png
+
+繁體中文：
+八張截圖取自最新 moment_prototype 展覽流程，保留遊戲介面，
+僅裁除外部開發控制面板；原始擷取尺寸為 393 × 852。
+場景包含最新版甜點店、疊箱與便利商店青蛙拍照。
+artwork/ 是原始美術素材，不是實機截圖。
+圖說請依素材標示「開發中 prototype 畫面」或「遊戲美術」。
+英文角色：Mugi（小麥）、Shiro（小白）；小日獸：Momentling。
+開發：麥尾 Mugio。採訪與素材利用諮詢：hello@mugio.studio。
+
+English:
+Eight actual screenshots from the current exhibition prototype, at 393 × 852.
+Only the surrounding development panels were cropped out; game UI is retained.
+Includes the current dessert shop, box stacking and convenience-store photo event.
+Files in artwork/ are original illustrations, not gameplay captures.
+Please caption images as “development prototype screenshot” or “game artwork”.
+Characters: Mugi and Shiro. Creatures: Momentling (plural: Momentlings).
+Developer: Mugio. Interviews and asset-use inquiries: hello@mugio.studio.
+
+日本語：
+最新の展示用プロトタイプから撮影した、393 × 852の画面8枚です。
+外側の開発用パネルだけを切り取り、ゲーム内UIはそのまま残しています。
+最新のスイーツ店、箱積み、コンビニでの撮影イベントを含みます。
+artwork/ は原画素材で、実機キャプチャではありません。
+「開発中のプロトタイプ画面」または「ゲームイラスト」と表記してください。
+キャラクター：ムギ、シロ。生き物：ヒビモン。
+開発：麥尾 Mugio。取材・素材利用のご相談：hello@mugio.studio。

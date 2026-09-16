@@ -1,0 +1,30 @@
+[
+  {
+    "asset": "assets/press/artwork/title-background.png",
+    "source": "/Users/hugh/works/moment_prototype/public/images/exhibition/start/start-background.png",
+    "type": "original current prototype artwork",
+    "source_sha256": "bb666e81af957f72f3b3c4cf0414486b2d8bd80d754c998a27dad31dfb8b4fe4",
+    "asset_sha256": "bb666e81af957f72f3b3c4cf0414486b2d8bd80d754c998a27dad31dfb8b4fe4"
+  },
+  {
+    "asset": "assets/press/artwork/dessert-shop.jpg",
+    "source": "/Users/hugh/works/moment_prototype/public/images/dessert_shop/甜點店.jpg",
+    "type": "original current prototype artwork",
+    "source_sha256": "9795e5a63bb338c4a6d87316c9541ddb81ba476f739c7744c86a64c4b2b9b558",
+    "asset_sha256": "9795e5a63bb338c4a6d87316c9541ddb81ba476f739c7744c86a64c4b2b9b558"
+  },
+  {
+    "asset": "assets/press/artwork/box-stacking.jpg",
+    "source": "/Users/hugh/works/moment_prototype/public/images/minigame/box_stacking/BoxStacking_BG.jpg",
+    "type": "original current prototype artwork",
+    "source_sha256": "d44b11a4b524be368efce13f00bac34c5c9dc54b00c5f5547bde9532358f6a93",
+    "asset_sha256": "d44b11a4b524be368efce13f00bac34c5c9dc54b00c5f5547bde9532358f6a93"
+  },
+  {
+    "asset": "assets/press/artwork/mugi-surprised.png",
+    "source": "/Users/hugh/works/moment_prototype/public/images/428出圖/立繪/小麥/48_錯愕_小貝狗_制服.png",
+    "type": "original current prototype artwork",
+    "source_sha256": "2aff7c0081cedc29953b1d926fd646d9fc618e44971983e8d2eacbb25858ca17",
+    "asset_sha256": "2aff7c0081cedc29953b1d926fd646d9fc618e44971983e8d2eacbb25858ca17"
+  }
+]

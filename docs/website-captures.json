@@ -1,0 +1,122 @@
+[
+  {
+    "name": "title",
+    "type": "actual prototype gameplay capture",
+    "source_url": "http://[::1]:3000/game/exhibition?lang=zh",
+    "source_commit": "5ed1525",
+    "captured": "2026-09-07",
+    "size": [
+      393,
+      852
+    ],
+    "file": "assets/press/screenshots/exhibition-20260907/title.png",
+    "capture_language": "zh",
+    "source_worktree": "Current running prototype at HEAD 5ed1525; unrelated character-style work in progress was present.",
+    "processing": "Crop to the 393 x 852 game viewport, no changes to game content. PNG original plus WebP website copy."
+  },
+  {
+    "name": "route",
+    "type": "actual prototype gameplay capture",
+    "source_url": "http://[::1]:3000/game/exhibition?preview=morning-route&sceneStep=route-game&lang=zh",
+    "source_commit": "5ed1525",
+    "captured": "2026-09-07",
+    "size": [
+      393,
+      852
+    ],
+    "file": "assets/press/screenshots/exhibition-20260907/route.png",
+    "capture_language": "zh",
+    "source_worktree": "Current running prototype at HEAD 5ed1525; unrelated character-style work in progress was present.",
+    "processing": "Crop to the 393 x 852 game viewport, no changes to game content. PNG original plus WebP website copy."
+  },
+  {
+    "name": "naotaro-photo",
+    "type": "actual prototype gameplay capture",
+    "source_url": "http://[::1]:3000/game/exhibition?preview=metro-dog&sceneStep=photo&lang=zh",
+    "source_commit": "5ed1525",
+    "captured": "2026-09-07",
+    "size": [
+      393,
+      852
+    ],
+    "file": "assets/press/screenshots/exhibition-20260907/naotaro-photo.png",
+    "capture_language": "zh",
+    "source_worktree": "Current running prototype at HEAD 5ed1525; unrelated character-style work in progress was present.",
+    "processing": "Crop to the 393 x 852 game viewport, no changes to game content. PNG original plus WebP website copy."
+  },
+  {
+    "name": "diary",
+    "type": "actual prototype gameplay capture",
+    "source_url": "http://[::1]:3000/game/exhibition?preview=diary-restore&sceneStep=read-0&lang=zh",
+    "source_commit": "5ed1525",
+    "captured": "2026-09-07",
+    "size": [
+      393,
+      852
+    ],
+    "file": "assets/press/screenshots/exhibition-20260907/diary.png",
+    "capture_language": "zh",
+    "source_worktree": "Current running prototype at HEAD 5ed1525; unrelated character-style work in progress was present.",
+    "processing": "Crop to the 393 x 852 game viewport, no changes to game content. PNG original plus WebP website copy."
+  },
+  {
+    "name": "box-stacking",
+    "type": "actual prototype gameplay capture",
+    "source_url": "http://[::1]:3000/game/exhibition?preview=box-game&lang=zh&sceneStep=box-game",
+    "source_commit": "5ed1525",
+    "captured": "2026-09-07",
+    "size": [
+      393,
+      852
+    ],
+    "file": "assets/press/screenshots/exhibition-20260907/box-stacking.png",
+    "capture_language": "zh",
+    "source_worktree": "Current running prototype at HEAD 5ed1525; unrelated character-style work in progress was present.",
+    "processing": "Crop to the 393 x 852 game viewport, no changes to game content. PNG original plus WebP website copy."
+  },
+  {
+    "name": "convenience-photo",
+    "type": "actual prototype gameplay capture",
+    "source_url": "http://[::1]:3000/game/exhibition?preview=convenience-clerk&sceneStep=photo&lang=zh",
+    "source_commit": "5ed1525",
+    "captured": "2026-09-07",
+    "size": [
+      393,
+      852
+    ],
+    "file": "assets/press/screenshots/exhibition-20260907/convenience-photo.png",
+    "capture_language": "zh",
+    "source_worktree": "Current running prototype at HEAD 5ed1525; unrelated character-style work in progress was present.",
+    "processing": "Crop to the 393 x 852 game viewport, no changes to game content. PNG original plus WebP website copy."
+  },
+  {
+    "name": "dessert-shop",
+    "type": "actual prototype gameplay capture",
+    "source_url": "http://[::1]:3000/game/exhibition?preview=frog-dessert&lang=zh",
+    "source_commit": "5ed1525",
+    "captured": "2026-09-07",
+    "size": [
+      393,
+      852
+    ],
+    "file": "assets/press/screenshots/exhibition-20260907/dessert-shop.png",
+    "capture_language": "zh",
+    "source_worktree": "Current running prototype at HEAD 5ed1525; unrelated character-style work in progress was present.",
+    "processing": "Crop to the 393 x 852 game viewport, no changes to game content. PNG original plus WebP website copy."
+  },
+  {
+    "name": "dessert-photo",
+    "type": "actual prototype gameplay capture",
+    "source_url": "http://[::1]:3000/game/exhibition?preview=frog-dessert&sceneStep=photo&lang=zh",
+    "source_commit": "5ed1525",
+    "captured": "2026-09-07",
+    "size": [
+      393,
+      852
+    ],
+    "file": "assets/press/screenshots/exhibition-20260907/dessert-photo.png",
+    "capture_language": "zh",
+    "source_worktree": "Current running prototype at HEAD 5ed1525; unrelated character-style work in progress was present.",
+    "processing": "Crop to the 393 x 852 game viewport, no changes to game content. PNG original plus WebP website copy."
+  }
+]
